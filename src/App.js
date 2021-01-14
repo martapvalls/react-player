@@ -5,21 +5,25 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 
+//redux
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
 function App() {
     let token
     return (
         <Router>
+            <Provider store={store}>
               <Header />
 
-              <Switch>
-                  <Route exact path="/">
-                      {!token && <Redirect to="/login" />}
-                  </Route>
-                  <Route exact path="/login" component={Login}/>
-                
-                  
+                <Switch>
+                    <Route exact path="/">
+                        {!token && <Redirect to="/login" />}
+                    </Route>
+                    <Route exact path="/login" component={Login}/>
+                </Switch>
 
-              </Switch>
+            </Provider>
         </Router>
     );
 }
