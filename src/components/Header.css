@@ -1,0 +1,12 @@
+.header{
+    background-color: rgb(132, 198, 255);
+    margin: 0;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__title{
+    padding: 10px;
+}

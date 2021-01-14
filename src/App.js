@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Header from './components/Header'
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello from main</h1>
-    </div>
-  );
+    return (
+        <Fragment>
+            <Header />
+            <h1>Hello from main</h1>
+        </Fragment>
+    );
 }
 
 export default App;
