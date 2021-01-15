@@ -2,3 +2,8 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
 export const LOGIN_USER_ERROR = 'LOGIN_USER_ERROR';
 
+export const GET_USER = 'LOGIN_USER';
+export const GET_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
+export const GET_USER_ERROR = 'LOGIN_USER_ERROR';
+
+
