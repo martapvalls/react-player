@@ -20,10 +20,13 @@ export function userLogin(user){
         dispatch( login() )
         try {
             const response = await axios.post(`${apiUrl}/Login.php`, params, { headers: {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}})
-            console.log(response)
             console.log(response.data)
-
-            dispatch(loginSuccess(user))
+            if(response.data.error){
+                dispatch(loginError(true))
+                return
+            }
+            sessionStorage.setItem("token", response.data.token)
+            dispatch(loginSuccess(response.data.token))
         } catch (error) {
             dispatch(loginError())
         }
