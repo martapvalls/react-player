@@ -17,7 +17,6 @@ export function getUserInfo(token){
 
         try {
             const response = await axios.post(`${apiUrl}/GetView.php`, params, { headers: {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}})
-            console.log(response.data)
             dispach( getUserSuccess(response.data))
         } catch (error) {
             getUserError()

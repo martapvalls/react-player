@@ -2,8 +2,8 @@
     background-color: rgb(237, 243, 252);
     min-height: 90vh;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
-
 }
