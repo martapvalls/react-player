@@ -3,6 +3,11 @@
     width: 200px;
     object-fit: cover;
     box-shadow: 4px 4px 8px rgb(132, 198, 255);
+    cursor: pointer;
+}
+
+.film__img:hover{
+    opacity: 0.6;
 }
 
 .film__fav{
