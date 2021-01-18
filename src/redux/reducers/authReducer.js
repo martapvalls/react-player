@@ -5,7 +5,7 @@ import {
 } from '../types'
 
 const initialState = {
-    token: '',
+    token: sessionStorage.getItem("token"),
     error: false,
     loading: false
 }
@@ -21,7 +21,7 @@ function authReducer(state = initialState, action){
             return {
                 ...state,
                 loading: false,
-                token: action.payload
+                token: sessionStorage.getItem("token")
             }
         case LOGIN_USER_ERROR:
             return {
