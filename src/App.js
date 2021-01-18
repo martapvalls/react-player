@@ -17,7 +17,6 @@ function App() {
         <Router>
             <Provider store={store}>
               <Header />
-
                 <Switch>
                     <Route exact path="/" component={Main} />
                     <Route exact path="/login" component={Login} /> 
