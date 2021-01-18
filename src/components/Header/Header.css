@@ -3,10 +3,20 @@
     margin: 0;
     height: 10vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
 .header__title{
     padding: 10px;
+}
+
+.user__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user__avatar{
+    max-width: 50px;
 }

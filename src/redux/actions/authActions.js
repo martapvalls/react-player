@@ -20,7 +20,7 @@ export function userLogin(user){
         dispatch( login() )
         try {
             const response = await axios.post(`${apiUrl}/Login.php`, params, { headers: {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}})
-            console.log(response.data)
+            
             if(response.data.error){
                 dispatch(loginError(true))
                 return
