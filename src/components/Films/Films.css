@@ -1,0 +1,40 @@
+
+.films__container{
+    padding-top: 4rem;
+    text-align: center;
+}
+.films__title{
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+.films__list{
+    display: flex;
+    overflow-x: auto;
+    width: 70vw;
+    justify-content: center;
+}
+
+.films__list::-webkit-scrollbar{
+    height: 10px;
+}
+
+.films__list::-webkit-scrollbar-thumb{
+    background: rgb(132, 198, 255);
+    border-radius: 10px;
+}
+
+.films__list::-webkit-scrollbar-button{
+    background-size: 100%;
+    width: 10px;
+    box-shadow: inset 2px 2px 4px  rgb(132, 198, 255);
+}
+
+.films__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    padding-bottom: 4%;
+}

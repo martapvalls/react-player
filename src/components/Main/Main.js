@@ -1,17 +1,18 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react'
 import './Main.css'
-import Loader from 'react-loader-spinner';
-import Film from '../Film/Film'
+import Loader from 'react-loader-spinner'
+import Films from '../Films/Films'
 
 //redux
-import { useSelector, useDispatch} from 'react-redux';
-import { getUserInfo } from '../../redux/actions/mainActions';
+import { useSelector, useDispatch} from 'react-redux'
+import { getUserInfo } from '../../redux/actions/mainActions'
 
 const Main = ({history}) => {
     const { token } = sessionStorage
 
     //state
     const [favs, setFavs ] = useState([])
+    const [fav, setFav] = useState({})
 
     
     //state of redux store
@@ -25,18 +26,16 @@ const Main = ({history}) => {
     useEffect(() => {
         if(!token){
             history.push('/login')
+        } else {
+            const retrieveUser = () => dispatch( getUserInfo(token) )
+            retrieveUser()
         }
     }, [history, token])
 
-    useEffect(() => {
-        //call api
-        const retrieveUser = () => dispatch( getUserInfo(token) )
-        retrieveUser()
-    }, [dispatch, token])
-    
+    // get favs from user and set new property isfav
     const getFavs = () => {
         let favourites = contents.filter((item) => user.favs.includes(item.id))
-        console.log(favourites)
+        favourites.forEach(favourite => favourite.isFav = true)
         setFavs(favourites)
     }
 
@@ -46,6 +45,28 @@ const Main = ({history}) => {
         }
     }, [user])
 
+    useEffect(() => {
+        if(fav.id){
+            handleFav()
+        }
+        console.log('hello')
+    }, [fav])
+    
+    //add or remove films from favs 
+    const handleFav = () => {
+        const indexFilm = favs.indexOf(fav)
+        if(indexFilm !== -1){
+            let favourites = favs.filter((item) => item.id !== fav.id)
+            setFavs(favourites)
+            setFav({})
+        } else {
+            let favourites = favs
+            favourites.push(fav)
+            setFavs(favourites)
+            setFav({})
+        }
+    }
+
     return (  
         <div className="main__container">
             {loading && <Loader
@@ -54,19 +75,8 @@ const Main = ({history}) => {
                         height={100}
                         width={100}
                     />}
-            <div className="favs__container">
-                <h2 className="favs__title">Your Favs</h2>
-                <ul className="favs__list">
-                    {favs.length > 0 ? ( 
-                        favs.map(fav => (
-                            <li key={fav.id} className="favs__item">
-                                <Film fav={fav}  />
-                            </li>
-                        ))
-                    ): <p>There aren't favourites yet</p>}
-                </ul>
-            </div>
-
+            <Films title="Your Favs" message="There aren't favourites yet" favs={favs} setFav={setFav} /> 
+            <Films title="Available" message="There aren't available films yet" contents={contents} setFav={setFav} /> 
         </div>
     );
 }

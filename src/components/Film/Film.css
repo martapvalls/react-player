@@ -1,5 +1,17 @@
 .film__img{
-    height: 200px;
+    height: 300px;
     width: 200px;
-    object-fit: contain;
+    object-fit: cover;
+    box-shadow: 4px 4px 8px rgb(132, 198, 255);
+}
+
+.film__fav{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+}
+
+.film__fav:hover{
+    color: red;
+    font-size: 1.2rem;
 }

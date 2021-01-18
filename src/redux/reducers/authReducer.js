@@ -5,7 +5,7 @@ import {
 } from '../types'
 
 const initialState = {
-    token: '',
+    token: sessionStorage.getItem("token"),
     error: false,
     loading: false
 }
