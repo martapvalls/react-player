@@ -3,6 +3,7 @@ import './Main.css'
 import Loader from 'react-loader-spinner'
 import Films from '../Films/Films'
 import Search from '../Search/Search'
+import Error from '../Error/Error'
 
 //redux
 import { useSelector, useDispatch} from 'react-redux'
@@ -22,6 +23,7 @@ const Main = ({history}) => {
     const loading = useSelector((state) => state.main.loading)
     const user = useSelector((state) => state.main.user)
     const contents = useSelector((state) => state.main.contents)
+    const error = useSelector((state) => state.main.error)
 
 
     const dispatch = useDispatch()
@@ -33,6 +35,7 @@ const Main = ({history}) => {
             const retrieveUser = () => dispatch( getUserInfo(token) )
             retrieveUser()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [history, token])
 
     // get favs from user and set new property isfav
@@ -47,6 +50,7 @@ const Main = ({history}) => {
         if(user){
             getFavs()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     //update the compo when user add or removes favs
@@ -54,11 +58,13 @@ const Main = ({history}) => {
         if(fav.id){
             handleFav()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fav])
     
     //update the compo when user search films
     useEffect(() => {
         handleSearch()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchQuery])
 
 
@@ -91,6 +97,7 @@ const Main = ({history}) => {
                     height={100}
                     width={100}
             />}
+            {error && <Error message="error with user information, try again later"/>}
             <Search setSearchQuery={setSearchQuery}/>
             {searchQuery && <Films title="Your search" message="There aren't results for this search" searchResults={searchResults} setFav={setFav} />}
             <Films title="Your Favs" message="There aren't favourites yet" favs={favs} setFav={setFav} /> 

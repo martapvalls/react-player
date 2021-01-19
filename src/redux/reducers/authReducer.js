@@ -21,7 +21,7 @@ function authReducer(state = initialState, action){
             return {
                 ...state,
                 loading: false,
-                token: sessionStorage.getItem("token")
+                token: action.payload
             }
         case LOGIN_USER_ERROR:
             return {

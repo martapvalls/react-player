@@ -36,13 +36,13 @@ const retrieveFilm = () => ({
     type: GET_FILM
 })
 
-//right credentials to login
+//retrieving films succesfull
 const retrieveFilmSuccess = film => ({
     type: GET_FILM_SUCCESS,
     payload: film
 })
 
-//wrong credentials, login error
+//wrong params
 const retrieveFilmError = () => ({
     type: GET_FILM_ERROR,
     payload: true
