@@ -6,6 +6,7 @@ import Header from './components/Header/Header'
 import Login from './components/Login/Login'
 import Main from './components/Main/Main'
 import Player from './components/Player/Player'
+import Footer from './components/Footer/Footer'
 
 //redux
 import { Provider } from 'react-redux'
@@ -22,6 +23,7 @@ function App() {
                     <Route exact path="/login" component={Login} /> 
                     <Route exact path="/player/:id" component={Player} /> 
                 </Switch>
+                <Footer />
             </Provider>
         </Router>
     );

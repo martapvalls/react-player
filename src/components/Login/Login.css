@@ -1,13 +1,13 @@
 .container{
-    background-color: rgb(192, 217, 253);
-    height: 90vh;
+    
+    height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .container__form{
-    background-color: #FFF;
+    background-image: linear-gradient( 135deg, #dfc8ee69 10%,  rgb(132, 198, 255) 100%);
     padding: 5rem 3rem;
     max-width: 500px;
     width: 95%;
@@ -41,7 +41,7 @@ label{
 .form__submit{
     text-transform: uppercase;
     font-size: 1.4rem;
-    background-color: rgb(132, 198, 255);
+    background-color: rgb(46, 158, 255);
     cursor: pointer;
     border: none;
     transition-duration: 0.4s;
@@ -49,8 +49,8 @@ label{
 
 .form__submit:hover{
     font-size: 1.6rem;
-    background-color:  rgb(192, 217, 253);
-    border: 1px solid  rgb(132, 198, 255);
+    background-color:  rgb(230, 240, 255);
+    border: 1px solid  rgb(46, 158, 255);;
 }
 
 @media only screen and (max-width:600px){
