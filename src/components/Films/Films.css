@@ -38,3 +38,13 @@
     position: relative;
     padding-bottom: 4%;
 }
+
+@media only screen and (max-width:600px){
+    .films__container{
+        padding-top: 2rem;
+    }
+
+    .films__list{
+        justify-content: flex-start;
+    }
+ }
