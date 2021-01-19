@@ -2,7 +2,7 @@
 
 Project made with react hooks and redux. 
 
-You can run the demo [here](https://react-film-player.netlify.app/login).
+You can run the demo [here](https://react-film-player.netlify.app).
 
 It has three views: Login, main and Player. 
 
