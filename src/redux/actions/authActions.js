@@ -38,9 +38,9 @@ const login = () => ({
 })
 
 //right credentials to login
-const loginSuccess = user => ({
+const loginSuccess = token => ({
     type: LOGIN_USER_SUCCESS,
-    payload: user
+    payload: token
 })
 
 //wrong credentials, login error

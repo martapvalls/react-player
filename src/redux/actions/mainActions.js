@@ -28,13 +28,13 @@ const getUser = () => ({
     type: GET_USER
 })
 
-//right credentials to login
+//right params to get user
 const getUserSuccess = user => ({
     type: GET_USER_SUCCESS,
     payload: user
 })
 
-//wrong credentials, login error
+//wrong params, error retrieving user
 const getUserError = () => ({
     type: GET_USER_ERROR,
     payload: true

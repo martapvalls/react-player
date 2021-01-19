@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import ReactPlayer from 'react-player'
 import './Player.css'
+import Error from '../Error/Error'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,12 +14,13 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const Player = ({match, history}) => {
     //state
-    const [ playerId, setPlayerId ] = useState(match.params.id)
+    const playerId = match.params.id
 
     //state of redux store
     const token = useSelector((state) => state.auth.token)
     const loading = useSelector((state) => state.player.loading)
     const film = useSelector((state) => state.player.film)
+    const error = useSelector((state) => state.player.error)
 
     //call player redux action
     const dispatch = useDispatch()
@@ -28,8 +31,8 @@ const Player = ({match, history}) => {
         } else {
             const retrieveFilm = () => dispatch( getFilm(token, playerId) )
             retrieveFilm()
-            console.log(film)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     //get duration film in hour:minutes:seconds format
@@ -54,9 +57,10 @@ const Player = ({match, history}) => {
                     height={100}
                     width={100}
             />} 
+            {error && <Error message="film not found"/>}
             <h2 className="player__title"> <Link to={'/'} className="player__back"> <FontAwesomeIcon icon={faArrowAltCircleLeft} size="1x"/> </Link> {film.title}  </h2>
             
-            <div className="player__info">
+            {film && <> <div className="player__info">
                 
                 <span> Gender: {film.section} </span>
                 <span> Duration: {getHourTime(film.duration)} </span>
@@ -67,14 +71,13 @@ const Player = ({match, history}) => {
             
             <ReactPlayer className='react-player'
                 url={film.url}
-                width='40%'
                 controls
                 config={{
                     file: {
                     forceHLS: true,
                     }
-            }}
-  />
+                }}
+            /> </>}
 
 
         </div>

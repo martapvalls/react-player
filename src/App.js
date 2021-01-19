@@ -20,7 +20,7 @@ function App() {
               <Header />
                 <Switch>
                     <Route exact path="/" component={Main} />
-                    <Route exact path="/login" component={Login} /> 
+                    <Route exact path="/login" component={Login} />  
                     <Route exact path="/player/:id" component={Player} /> 
                 </Switch>
                 <Footer />

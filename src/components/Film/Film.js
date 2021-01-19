@@ -13,14 +13,15 @@ const Film = ({film, setFav}) => {
 
     return (  
         <Fragment>
-            <p className="film__title"> {film.title} </p>
+            {film && <> <p className="film__title"> {film.title} </p>
             <Link to={`/player/${film.id}`}>
                 <img src={film.cover} alt="film" className="film__img"/>
             </Link>
             
             <div className="film__fav">
                 {film.isFav ? <FontAwesomeIcon icon={faHeart} size="2x" onClick={toggleFav}/> :  <FontAwesomeIcon icon={faHeartBroken} size="2x" onClick={toggleFav}/>}
-            </div>
+            </div> 
+            </>}
         </Fragment>
     );
 }
