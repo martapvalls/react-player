@@ -2,7 +2,7 @@ import React from 'react'
 import Film from '../Film/Film'
 import './Films.css'
 
-const Films = ({title, message, favs, setFav, contents, searchResults}) => {
+const Films = ({title, message, favs, setFav, category, searchResults}) => {
     return (  
         <div className="films__container">
             <h2 className="films__title"> {title} </h2>
@@ -16,10 +16,10 @@ const Films = ({title, message, favs, setFav, contents, searchResults}) => {
                 ): <p> {message}</p>}
             </ul>} 
 
-            {title === 'Available' && <ul className="films__list">
-            {contents.length > 0 ? ( 
-                contents.map(film => (
-                    <li key={film.id} className="films__item">
+            {category && <ul className="category__list">
+            {category.length > 0 ? ( 
+                category.map(film => (
+                    <li key={film.id} className="films__item category__item">
                         <Film film={film} favs={favs} setFav={setFav}/>
                     </li>
                 ))

@@ -17,6 +17,7 @@ const Main = ({history}) => {
     const [fav, setFav] = useState({})
     const [searchQuery, setSearchQuery] =useState('')
     const [searchResults, setSearchResults ] = useState([])
+    const [categories, setCategories] = useState([])
 
     
     //state of redux store
@@ -49,6 +50,7 @@ const Main = ({history}) => {
     useEffect(() => {
         if(user){
             getFavs()
+            getSections()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
@@ -88,6 +90,23 @@ const Main = ({history}) => {
         setSearchResults(results)
     }
 
+    //separate movies by genre and store then in the state
+    const getSections = () => {
+        let sections = {}
+        let sectionsArray = []
+
+        contents.forEach(film => {
+            if(!sections[film.section]){
+                sections[film.section] = []
+            } 
+            sections[film.section].push(film)            
+        })
+        Object.keys(sections).forEach((e) => {
+            sectionsArray.push(sections[e])
+        });
+        setCategories(sectionsArray)
+    }
+
     return (  
         <div className="main__container">
             {loading && 
@@ -101,7 +120,12 @@ const Main = ({history}) => {
             <Search setSearchQuery={setSearchQuery}/>
             {searchQuery && <Films title="Your search" message="There aren't results for this search" searchResults={searchResults} setFav={setFav} />}
             <Films title="Your Favs" message="There aren't favourites yet" favs={favs} setFav={setFav} /> 
-            <Films title="Available" message="There aren't available films yet" contents={contents} setFav={setFav} /> 
+            {categories && categories.length > 1 && <div className="category__container">
+                {categories.map((category) => 
+                    <Films title={category[0].section} message="There aren't available films yet" category={category} setFav={setFav} />
+                )}
+                
+            </div>}
         </div>
     );
 }
