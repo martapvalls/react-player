@@ -18,7 +18,8 @@ Login view
 In the main view you can see the general data of the user, as well as his favorites (you can add or remove them), a movie search engine and when you click on a movie you are redirected to the player view.
 
 Main view 
-![Main view](https://i.gyazo.com/e8073a68fd7819ea495d89bd5cdba152.png)
+![Main view](https://i.gyazo.com/b83871283d4a2c18d614bcac33c555b7.png)
+![Main view](https://i.gyazo.com/f6939782ebfd6e87b2bd1b9c37aa83ca.png)
 
 In the player, information about the selected movie is displayed. 
 

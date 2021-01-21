@@ -16,15 +16,15 @@ const Films = ({title, message, favs, setFav, category, searchResults}) => {
                 ): <p> {message}</p>}
             </ul>} 
 
-            <ul className="films__list">
-            {category && category.length > 0 ? ( 
+            {category && <ul className="category__list">
+            {category.length > 0 ? ( 
                 category.map(film => (
-                    <li key={film.id} className="films__item">
+                    <li key={film.id} className="films__item category__item">
                         <Film film={film} favs={favs} setFav={setFav}/>
                     </li>
                 ))
             ): <p>There aren't avilable films yet</p>}
-            </ul>
+            </ul>}
 
             {title === 'Your search' && <ul className="films__list">
             {searchResults.length > 0 ? ( 

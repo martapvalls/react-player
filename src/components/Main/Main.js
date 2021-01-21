@@ -90,8 +90,7 @@ const Main = ({history}) => {
         setSearchResults(results)
     }
 
-    //separe movies from section
-
+    //separate movies by genre and store then in the state
     const getSections = () => {
         let sections = {}
         let sectionsArray = []
@@ -103,9 +102,6 @@ const Main = ({history}) => {
             sections[film.section].push(film)            
         })
         Object.keys(sections).forEach((e) => {
-
-            //console.log(sections[e]);
-
             sectionsArray.push(sections[e])
         });
         setCategories(sectionsArray)
@@ -124,13 +120,12 @@ const Main = ({history}) => {
             <Search setSearchQuery={setSearchQuery}/>
             {searchQuery && <Films title="Your search" message="There aren't results for this search" searchResults={searchResults} setFav={setFav} />}
             <Films title="Your Favs" message="There aren't favourites yet" favs={favs} setFav={setFav} /> 
-            {categories && categories.length > 1 && <div>
+            {categories && categories.length > 1 && <div className="category__container">
                 {categories.map((category) => 
                     <Films title={category[0].section} message="There aren't available films yet" category={category} setFav={setFav} />
                 )}
                 
             </div>}
-            {/* <Films title="Available" message="There aren't available films yet" contents={contents} setFav={setFav} />  */}
         </div>
     );
 }
