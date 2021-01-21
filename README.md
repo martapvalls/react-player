@@ -4,7 +4,7 @@ Project made with react hooks and redux.
 
 You can run the demo [here](https://react-film-player.netlify.app).
 
-It has three views: Login, main and Player. 
+It has three views: Login, Main and Player. 
 
 In the login you enter the email and password, in case it is not the correct one an error is shown, in case of a correct login you are redirected to the main view.
 
@@ -26,6 +26,7 @@ Player view
 ![Player view](https://i.gyazo.com/cf094227b2a456bedaf0b736c6bca606.png)
 
 
+
 ## Run the project
 
 Clone this repository and in the root folder run these: 
@@ -34,4 +35,3 @@ Clone this repository and in the root folder run these:
 npm install
 
 npm start
-
